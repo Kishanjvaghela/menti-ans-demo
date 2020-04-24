@@ -1,10 +1,10 @@
-import { Questions } from "./Questions";
+import { Question } from "./Question";
 export class QueResponse implements IQueResponse {
   name!: string;
-  questions!: Questions[];
+  questions!: Question[];
 }
 
 interface IQueResponse {
   name: string;
-  questions: Questions[];
+  questions: Question[];
 }
