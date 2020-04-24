@@ -21,6 +21,7 @@ const getQuestions = async (id: string) => {
         console.log("Total Questions", questions.length);
         questions.forEach((question: Question) => {
           console.log(question.question);
+          console.log(question.choices);
         })
       }
     } else {
