@@ -1,7 +1,7 @@
 import fetch from "node-fetch";
 import { from } from "rxjs";
 import { map, switchMap, mergeMap, toArray, filter } from "rxjs/operators";
-
+import fs from 'fs';
 import { QueResponse } from "./models/QueResponse";
 import { Question } from "./models/Question";
 import { ResultResponse } from "./models/ResultResponse";
@@ -41,32 +41,53 @@ const questionObservable = (id: string) => {
   return observable;
 };
 
-const getQuestions = (id: string) => {
+const getQuestions = (id: string, fileName: string | undefined) => {
   if (!id) {
     console.log("Please add proper id");
   }
   console.log("Loading...", id);
-  console.log('==========================');
+  console.log("==========================");
   const observable = questionObservable(id);
 
   observable.subscribe((questions: Question[]) => {
-    console.log("Total Questions", questions.length);
-    console.log('==========================');
-    questions.forEach((que: Question, index: number) => {
-      console.log(`\n[${index + 1}] ${que.question}`);
-      que.choices.forEach((choice: Choice) => {
-        const answer = choice.correct_answer === true ? '*' : ' ';
-        console.log(`\t(${answer}) ${choice.label}`);
-      })
-    });
+    if (fileName) {
+      const stream = fs.createWriteStream(fileName);
+      stream.once("open", function (fd: any) {
+        stream.write(`Total Questions: ${questions.length}\n`);
+        stream.write("==========================\n");
+        questions.forEach((que: Question, index: number) => {
+          stream.write(`[${index + 1}] ${que.question}\n`);
+          que.choices.forEach((choice: Choice) => {
+            const answer = choice.correct_answer === true ? "*" : " ";
+            stream.write(`\t(${answer}) ${choice.label}\n`);
+          });
+        });
+        stream.end();
+        console.log(`Questions and Answers write completed to file: ${fileName}`);
+      });
+    } else {
+      console.log("Total Questions", questions.length);
+      console.log("==========================");
+      questions.forEach((que: Question, index: number) => {
+        console.log(`\n[${index + 1}] ${que.question}`);
+        que.choices.forEach((choice: Choice) => {
+          const answer = choice.correct_answer === true ? "*" : " ";
+          console.log(`\t(${answer}) ${choice.label}`);
+        });
+      });
+    }
   });
 };
 
-// npm run menti 83c3zmzy28
-process.argv.forEach(async (val: string, index: number) => {
-  if (index === 2 && val) {
-    await getQuestions(val);
+const getMentiAnswers = async () => {
+  const args = process.argv;
+  if (args.length >= 3) {
+    const token = args[2];
+    const fileName = args.length === 4 ? args[3] : undefined;
+    await getQuestions(token, fileName);
   } else {
-    console.log(index + ": " + val);
+    console.log("Please add proper token");
   }
-});
+};
+
+getMentiAnswers();
