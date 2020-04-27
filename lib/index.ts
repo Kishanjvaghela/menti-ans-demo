@@ -1,7 +1,7 @@
 import fetch from "node-fetch";
 import { from } from "rxjs";
 import { map, switchMap, mergeMap, toArray, filter } from "rxjs/operators";
-import fs from 'fs';
+import fs from "fs";
 import { QueResponse } from "./models/QueResponse";
 import { Question } from "./models/Question";
 import { ResultResponse } from "./models/ResultResponse";
@@ -50,30 +50,30 @@ const getQuestions = (id: string, fileName: string | undefined) => {
   const observable = questionObservable(id);
 
   observable.subscribe((questions: Question[]) => {
+    const printLogs: string[] = [];
+    printLogs.push(`Total Questions: ${questions.length}`);
+    printLogs.push("==========================");
+    questions.forEach((que: Question, index: number) => {
+      printLogs.push(`\n[${index + 1}] ${que.question}`);
+      que.choices.forEach((choice: Choice) => {
+        const answer = choice.correct_answer === true ? "*" : " ";
+        printLogs.push(`\t(${answer}) ${choice.label}`);
+      });
+    });
     if (fileName) {
       const stream = fs.createWriteStream(fileName);
       stream.once("open", function (fd: any) {
-        stream.write(`Total Questions: ${questions.length}\n`);
-        stream.write("==========================\n");
-        questions.forEach((que: Question, index: number) => {
-          stream.write(`[${index + 1}] ${que.question}\n`);
-          que.choices.forEach((choice: Choice) => {
-            const answer = choice.correct_answer === true ? "*" : " ";
-            stream.write(`\t(${answer}) ${choice.label}\n`);
-          });
+        printLogs.forEach((log: string) => {
+          stream.write(`${log}\n`);
         });
         stream.end();
-        console.log(`Questions and Answers write completed to file: ${fileName}`);
+        console.log(
+          `Questions and Answers write completed to file: ${fileName}`
+        );
       });
     } else {
-      console.log("Total Questions", questions.length);
-      console.log("==========================");
-      questions.forEach((que: Question, index: number) => {
-        console.log(`\n[${index + 1}] ${que.question}`);
-        que.choices.forEach((choice: Choice) => {
-          const answer = choice.correct_answer === true ? "*" : " ";
-          console.log(`\t(${answer}) ${choice.label}`);
-        });
+      printLogs.forEach((text: string) => {
+        console.log(text);
       });
     }
   });
