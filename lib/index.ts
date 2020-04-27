@@ -8,11 +8,20 @@ import { ResultResponse } from "./models/ResultResponse";
 import { Result } from "./models/Result";
 import { Choice } from "./models/Choice";
 
-const getQuestions = (id: string) => {
-  if (!id) {
-    console.log("Please add proper id");
-  }
-  console.log("Loading...", id);
+const resultObservable = (question: Question) => {
+  const resultPromise = fetch(
+    `https://api.mentimeter.com/questions/${question.id}/result`
+  );
+  return from(resultPromise).pipe(
+    switchMap((response) => response.json()),
+    map((data: ResultResponse) => {
+      question.choices = data.results.questions[question.id].choices;
+      return question;
+    })
+  );
+};
+
+const questionObservable = (id: string) => {
   const questionPromise = fetch(
     `https://www.menti.com/core/vote-keys/${id}/series`
   );
@@ -25,20 +34,20 @@ const getQuestions = (id: string) => {
     }),
     mergeMap((queResponse: QueResponse) => queResponse.questions),
     filter((question: Question) => question.type === "quiz"),
-    mergeMap((question: Question, val: number) => {
-      return from(
-        fetch(`https://api.mentimeter.com/questions/${question.id}/result`)
-      ).pipe(
-        switchMap((response) => response.json()),
-        map((data: ResultResponse) => {
-          question.choices = data.results.questions[question.id].choices;
-          return question;
-        })
-      );
-    }),
+    mergeMap(resultObservable),
     toArray()
   );
+  return observable;
+};
 
+const getQuestions = (id: string) => {
+  if (!id) {
+    console.log("Please add proper id");
+  }
+  console.log("Loading...", id);
+
+  const observable = questionObservable(id);
+  
   observable.subscribe((questions: Question[]) => {
     console.log("Total Questions", questions.length);
   });
