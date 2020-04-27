@@ -45,11 +45,19 @@ const getQuestions = (id: string) => {
     console.log("Please add proper id");
   }
   console.log("Loading...", id);
-
+  console.log('==========================');
   const observable = questionObservable(id);
-  
+
   observable.subscribe((questions: Question[]) => {
     console.log("Total Questions", questions.length);
+    console.log('==========================');
+    questions.forEach((que: Question, index: number) => {
+      console.log(`\n[${index + 1}] ${que.question}`);
+      que.choices.forEach((choice: Choice) => {
+        const answer = choice.correct_answer === true ? '*' : ' ';
+        console.log(`\t(${answer}) ${choice.label}`);
+      })
+    });
   });
 };
 
