@@ -9,6 +9,7 @@ import { Result } from "./models/Result";
 import { Choice } from "./models/Choice";
 
 const resultObservable = (question: Question) => {
+  // We can pass question.admin_key instead of question.id
   const resultPromise = fetch(
     `https://api.mentimeter.com/questions/${question.id}/result`
   );
