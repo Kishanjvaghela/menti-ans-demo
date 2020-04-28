@@ -4,7 +4,7 @@ Command line helper to get all answers of menti questions.
 
 ## Steps
 
-- clone repo
+- clone repo and `npm install`
 - `npm run build`
 - `node dist/index.js <other commands>`
 
