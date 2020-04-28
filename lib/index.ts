@@ -23,14 +23,18 @@ const resultObservable = (question: Question) => {
 };
 
 const questionObservable = (id: string) => {
+  // https://www.menti.com/core/vote-keys/800726/series?page=voting_web_first
+
   const questionPromise = fetch(
-    `https://www.menti.com/core/vote-keys/${id}/series`
+    `https://www.menti.com/core/vote-ids/${id}/series`
   );
   const observable = from(questionPromise).pipe(
     switchMap((response) => response.json()),
     map((queResponse) => {
-      console.log("Name", queResponse.name);
-      console.log("Total Slides", queResponse.questions.length);
+      if(queResponse && queResponse.questions) {
+        console.log("Name", queResponse.name);
+        console.log("Total Slides", queResponse.questions.length);
+      }
       return queResponse;
     }),
     mergeMap((queResponse: QueResponse) => queResponse.questions),
@@ -76,7 +80,9 @@ const getQuestions = (id: string, fileName: string | undefined) => {
         console.log(text);
       });
     }
-  });
+  },
+  err => console.log('HTTP Error', err),
+  () => console.log('HTTP request completed.'));
 };
 
 const getMentiAnswers = async () => {

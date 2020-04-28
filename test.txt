@@ -1,0 +1,92 @@
+Total Questions: 15
+==========================
+
+[1] Why do camels have long eyelashes?
+	( ) See at night
+	(*) Keep out sand
+	( ) Flutter at partners
+	( ) Look nice
+
+[2] Where do polar bears live?
+	(*) Arctic
+	( ) Antartic
+	( ) Equator
+	( ) Tropics
+
+[3] Which of these is faster over long distances?
+	(*) Pronghorn antelope
+	( ) Red kangaroo
+	( ) Ostrich
+	( ) Cheetah
+
+[4] What is the term for baby fish?
+	( ) Roast
+	( ) Boil
+	(*) Fry
+	( ) Saute
+
+[5] How do we suppress noise when installing the offshore monopiles underwater?
+	( ) ear plugs
+	(*) bubble curtain
+	( ) active noise cancellation
+	( ) broadcast classical music
+
+[6] Which of these seals breed in tropical waters?
+	( ) Fur
+	( ) Navy
+	( ) Royal
+	(*) Monk
+
+[7] A group of owls is called a
+	( ) wing
+	(*) parliament
+	( ) gaggle
+	( ) flock
+
+[8] Which of the following snakes is not venomous?
+	( ) Taipan
+	(*) Grass
+	( ) Black adder
+	( ) Mamba
+
+[9] What is the Taiwanese national flower?
+	( ) Cherry blossom
+	(*) Plum blossom
+	( ) Carnation
+	( ) Edelweiss
+
+[10] For it's size, which animal can jump the farthest?
+	( ) Rabbit
+	(*) Flea
+	( ) Kangaroo
+	( ) Leopard
+
+[11] What is Rice Paper for art made from?
+	( ) Rice
+	( ) Fruit
+	(*) Tree
+	( ) Moss
+
+[12] What happens to a bee after it stings an intruder?
+	( ) Becomes hungry
+	( ) Grow new wings
+	(*) Dies
+	( ) Changes color
+
+[13] What modern dance was supposed to cure a spiders bite?
+	( ) black widow
+	( ) ambulance
+	(*) tarantella
+	( ) pesticide
+
+[14] Which of the following is best for communicating over long distances underwater?
+	( ) Color
+	( ) Scent
+	(*) Sound
+	( ) Electricity
+
+[15] What sort of plant is vanilla obtained from?
+	(*) Orchid
+	( ) Vine
+	( ) Moss
+	( ) Bush
