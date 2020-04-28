@@ -1,6 +1,6 @@
 # menti-ans-demo
 
-Command line helper to get all answers of menti questions.
+Command line helper to get all answers of Menti / Mentimeter questions.
 
 ## Steps
 
