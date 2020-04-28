@@ -26,11 +26,20 @@ const questionObservable = (url: string) => {
     // https://www.menti.com/core/vote-keys/800726/series?page=voting_web_first
     const questionPromise = fetch(url);
     const observable = from(questionPromise).pipe(
-        switchMap((response) => response.json()),
-        map((queResponse) => {
+        switchMap(async (response) => {
+            if (response.status === 200) {
+                return response.json();
+            } else {
+                const errorJSON = await response.json();
+                throw errorJSON && errorJSON.message ? errorJSON.message : response.statusText;
+            }
+        }),
+        map((queResponse: QueResponse) => {
             if (queResponse && queResponse.questions) {
                 console.log("Name", queResponse.name);
                 console.log("Total Slides", queResponse.questions.length);
+            } else {
+                throw "No Questions available";
             }
             return queResponse;
         }),
@@ -43,7 +52,7 @@ const questionObservable = (url: string) => {
 };
 
 export const getQuestions = (id: string, key: string, fileName: string | undefined) => {
-
+    console.log("==========================");
     let url = '';
     if (id) {
         url = `https://www.menti.com/core/vote-ids/${id}/series`;
@@ -86,6 +95,6 @@ export const getQuestions = (id: string, key: string, fileName: string | undefin
             });
         }
     },
-        err => console.error('HTTP Error', err),
+        err => console.error('HTTP Error ', err),
         () => console.log('HTTP request completed.'));
 };
