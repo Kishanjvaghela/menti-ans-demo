@@ -13,6 +13,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "commander": "^5.1.0",
     "node-fetch": "^2.6.0",
     "rxjs": "^6.5.5"
   },
