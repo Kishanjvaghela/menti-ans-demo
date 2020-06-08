@@ -10,5 +10,5 @@ program
 program.parse(process.argv);
  
 if (program.debug) console.log(program.opts());
-
+// node dist/index.js -d -k b6h2dsfqgk -f result.txt
 getQuestions(program.id, program.key, program.file);

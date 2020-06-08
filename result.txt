@@ -1,0 +1,92 @@
+Total Questions: 15
+==========================
+
+[1] 6. Who is the Leader of team Valor?
+	( ) Candela
+	( ) Crimson
+	( ) Moltres
+	( ) Talonflame
+
+[2] 15. The only Pokémon considered a delicacy to eat.
+	( ) Cherrim
+	( ) Vanillite
+	( ) Slurpuff
+	( ) Slowpokes
+
+[3] 9.  What type of Pokémon  will be boost by windy weather?
+	( ) Psychic
+	( ) Ghost
+	( ) Normal
+	( ) Fire
+
+[4] 5. Decrypt the message formed by these alphabetical Pokémon.
+	( ) UNOWN?
+	( ) UNOOB?
+	( ) UNION?
+	( ) UNBAN?
+
+[5] 10. Which is mega evolutionary Pokémon.
+	( ) Mega Ninetales
+	( ) Mega Pixel
+	( ) Mega Articuno
+	( ) Mega Sableye
+
+[6] 12. Which Pokémon created the “Pokémon Universe”?
+	( ) Dialga
+	( ) Mewtwo
+	( ) Arceus
+	( ) Mew
+
+[7] 7. Game developer for latest Pokémon Sword and Shield is ….
+	( ) Niantic. Inc.
+	( ) Nintendo The Pokémon Company
+	( ) Game Freak Inc.
+	( ) T Munusamy Inc.
+
+[8] 11. The Item not manufactured by Silph Company
+	( ) Mega Ball
+	( ) Upgrade
+	( ) Hyper Potion
+	( ) Repel
+
+[9] 13. What inspired Executive Director Satoshi Tajiri in both the video games and the general fictional world of Pokémon?
+	( ) Manga collections
+	( ) Insects collections
+	( ) Porno collections
+	( ) Anime collections
+
+[10] 14. Jynx was a racial stereotype of Africans because of its big pink lips and pure black skin. Jynx’s skin color re-edited to?
+	( ) Mauve
+	( ) Magenta
+	( ) Cerulean
+	( ) Russet
+
+[11] 4. What is Benny’s favorite Pokémon?
+	( ) RAICHU
+	( ) SANDSHREW
+	( ) NINETALES
+	( ) PIKACHU
+
+[12] 3. Which Pokémon not part of these silhouettes?
+	( ) Dratini
+	( ) Ekans
+	( ) Milotic
+	( ) Dragonair
+
+[13] 2. Each Pokémon region reflects a real-life location. Which one is not Japanese based region?
+	( ) Hoenn
+	( ) Shinnoh
+	( ) Jotho
+	( ) Kalos
+
+[14] 1. Who is this?
+	( ) Mr. Rhyme
+	( ) Mr. Sinu
+	( ) Mr. Rime
+	( ) Mr. Mime
+
+[15] 8. Which is genderless Pokémon?
+	( ) Drifblim
+	( ) Jirachi
+	( ) Ludicolo
+	( ) Boldore

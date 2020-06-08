@@ -10,16 +10,12 @@ import { Choice } from "./models/Choice";
 
 const resultObservable = (question: Question) => {
     // We can pass question.admin_key instead of question.id
-    // console.log('resultObservable');
-    // https://api.mentimeter.com/questions/6482ebc26047/result
-    // https://api.mentimeter.com/series/fcdd1f464a548e6536bea477460456fc
     const resultPromise = fetch(
-        `https://api.mentimeter.com/questions/${question.public_key}/result`
+        `https://api.mentimeter.com/questions/${question.id}/result`
     );
     return from(resultPromise).pipe(
         switchMap((response) => response.json()),
         map((data: ResultResponse) => {
-            console.log('data', data);
             question.choices = data.results ? data.results.questions[question.id].choices : question.choices;
             return question;
         })
@@ -68,8 +64,7 @@ export const getQuestions = (id: string, key: string, fileName: string | undefin
         console.error('Id or Key is required');
         return;
     }
-    // url = 'https://api.mentimeter.com/series/1365dc16bee810f0346d1fd9251a5cd6';
-
+//https://www.menti.com/core/vote-keys/800726/series
     console.log("==========================");
     const observable = questionObservable(url);
     observable.subscribe((questions: Question[]) => {
