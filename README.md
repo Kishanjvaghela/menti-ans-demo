@@ -39,5 +39,3 @@ Command line helper to get all answers of Menti / Mentimeter questions.
 ## Note
 
 > This code is only for testing and debugging. Please do not use it for hack or cracking. Repository owner is not responsible for any misuse.
-
-//https://www.menti.com/wdj2n15aaz
