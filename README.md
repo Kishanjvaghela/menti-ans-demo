@@ -32,6 +32,10 @@ Command line helper to get all answers of Menti / Mentimeter questions.
 
 `node dist/index.js -d -k x8rihuu5np -f result.txt`
 
+- Save result as a html file
+
+`node dist/index.js -d -k x8rihuu5np -h result.html`
+
 ## Note
 
 > This code is only for testing and debugging. Please do not use it for hack or cracking. Repository owner is not responsible for any misuse.

@@ -6,6 +6,7 @@ export class Question implements IQuestion {
   question!: string;
   choices!: Choice[];
   admin_key!: string;
+  question_image_url!: string;
 }
 
 interface IQuestion {
